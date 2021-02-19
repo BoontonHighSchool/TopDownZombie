@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://spritesheet_characters.png" type="Texture" id=2]
+[ext_resource path="res://image0008.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 20.8051
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 3.3371, -0.834274 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+light_mask = 2
+position = Vector2( 11.6798, 0 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 57, 44 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( 0, 9 )
+enabled = true
+cast_to = Vector2( 150, 0 )
+
+[node name="Label" type="Label" parent="."]
+visible = false
+modulate = Color( 1, 0, 0, 1 )
+margin_left = 27.5461
+margin_top = -22.7785
+margin_right = 67.5461
+margin_bottom = -8.77846
+text = "TEST"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CrossHair" type="Sprite" parent="."]
+position = Vector2( 82.75, -22.75 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2( 0, 9 )
+default_color = Color( 1, 0, 0.960784, 0.490196 )
+end_cap_mode = 2
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 40, 9 )
