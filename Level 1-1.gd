@@ -15,7 +15,7 @@ func _ready():
 	set_process(true)
 	screensize = get_viewport().get_visible_rect().size
 	get_valid_cells() # Compute the valid cells in the tilemap
-	spawn_zombies(5)
+	spawn_zombies(2)
 
 func get_valid_cells() -> void:
 	valid_cells = []
@@ -26,11 +26,11 @@ func get_valid_cells() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	zCount = zContainer.get_child_count()
-	# print("zCount ",zCount, "   Level: ",level)
+	print("zCount ",zCount, "   Level: ",level)
 	$HUD/Label.set_text(str(zCount))
 	if zContainer.get_child_count() == 0:
 		level += 1
-		spawn_zombies(level * 1)
+		spawn_zombies(level * 2)
 		
 func spawn_zombies(num):
 	var cells_to_use = valid_cells.duplicate() # Copy the cells
